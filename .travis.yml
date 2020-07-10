@@ -1,7 +1,13 @@
 language: ruby
 rvm:
- - 2.5.3
+- 2.5.3
 before_install:
-  - gem update --system
+- gem update --system
 script:
-  - bundle exec rspec
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: ebQqAR7rzQApxZ2J+vQM9mdsgB5XQnrxa670AT3b3xBmDCmB5J1iuuXBMgpNbuzybajFkJHru74aVWgKaQ4EsmnHLvNnVBcHOlPaz13opXSUpgyTLWqp2QcdhrkoFl+T/oHKmb5vsyO+yR8pAEv1v4ua/U361kn+1lHx9FBYvp0FfN2UNk6+ac8iZ9vq8iKNx+3W9DCxRhjWYP9xr6vUqMLfANlumGuFxFPZH9xlU+/+f04XkVLYmVlUkqizk+ACIfvkBZdOmoLmgnV+VM5KhfB184s+iJJ1XUBCcC/X9Zhbu/2ULUL6VV5PhKr5bwKOK4OqExuQg6yxQh6yt0TUpARpOK3E6T4WZk4HFeMhR5wvgm/9IraNU4P5ItDOwT201juNQoK2DUv2SWNJkPMZQq6f9nkY01dysdTsuy7XQGdqgWI8GpwEliMU2MeedgYqGJspmQ/yhZWe3QFaaxntvxJlUizrYQ5UjlGjwjea4tHaOaA4ifXSkVdXSRH/AVxRNQB0GWIJqzk4P584o1MY6dQlapkYYLmTM4wXBXQR1QiYOn2WpyF4JgBjnPJLHmRADZ+5ETUYrXZEknZouutRc2NkThTCNbXzoUz2UA0nIHjNqZrjfAcnlv+gsy6Q2foX/npzD+uFBjBj53bpYJWfyyxoGJDjpvkRd8Cs63aIGxo=
+  app: meganmonacelli
+  run: "rails db:migrate"
